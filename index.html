@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <div id="left-pane">
+            <div id="top-header">
+                <button id="new-chat">New Chat</button>
+                <div id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <div id="list-of-chats">
+                <!-- Existing chat items here -->
+            </div>
+            <div id="profile">
+                <div id="upgrade-plan">
+                    <i id="account-icon" class="fas fa-user-circle"></i>
+                    <div id="upgrade-text">Upgrade to Plus</div>
+                    <span id="new-label" >new</span>
+                </div>
+                <div id="profile-details">
+                    <img id="user-avatar" src="user-avatar.png" alt="User Avatar">
+                    <div id="user-name">John Doe</div>
+                    <div id="more-options">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="show-sidebar">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+
+      
+       
+        <div id="right-pane">
+            <div id="floating-buttons" style="width:85%; margin:0;">
+                <button class="floating-button">GPT-3.5</button>
+                <button class="floating-button">GPT-4</button>
+            </div>
+
+            <div id="messages">
+                <div class="message-card user-message">User message goes here
+                    
+                </div>
+                <div class="message-card other-message">user message goes here</div>
+                <!-- Add more messages as needed -->
+            </div>
+            <div class="">
+
+                <img style=" center 
+                         display: block;
+                         padding-left:  45%;          
+                         padding-top: 80px; " src="https://seeklogo.com/images/C/chatgpt-logo-02AFA704B5-seeklogo.com.png" alt="Girl in a jacket" width="40px" height="40px">
+                <h2 style=" text-align: center ;"> How can I help you today? </h2>
+            </div>
+
+
+            <div id="send-message">
+                <textarea id="message-input" placeholder="Type your message..."></textarea>
+                <div id="send-icon">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script>
+            document.getElementById('new-chat').addEventListener('click', function () {
+                // Create a new chat item
+                const list = document.getElementById('list-of-chats');
+                const newChat = document.createElement('div');
+                newChat.className = 'single-chat';
+                newChat.innerHTML = `
+              <img class="chat-icon" src="chat-icon.png" alt="Chat Icon">
+              <div class="chat-title">New Chat</div>
+            `;
+                list.appendChild(newChat);
+            });
+
+            document.getElementById('close-sidebar').addEventListener('click', function () {
+                document.getElementById('left-pane').style.left = '-25%';
+                document.getElementById('show-sidebar').style.display = 'block';
+            });
+
+            document.getElementById('show-sidebar').addEventListener('click', function () {
+                document.getElementById('left-pane').style.left = '0';
+                document.getElementById('show-sidebar').style.display = 'none';
+            });
+
+
+
+            function sendMessage() {
+                var messageInput = document.getElementById('messageInput');
+                var message = messageInput.value;
+
+                if (message.trim() !== '') {
+                    // Process the message (you can send it to the server, display it, etc.)
+                    console.log('Message sent:', message);
+
+                    // Clear the input field
+                    messageInput.value = '';
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
